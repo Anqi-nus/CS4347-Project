@@ -1,5 +1,7 @@
 # CS4347-Project
 
-Run `pip3 install -r requirements.txt` to set up environment. 
+Run `node app.js` to run node app. 
+
+Run `npm start` to start front-end. 
 
 ## UI
