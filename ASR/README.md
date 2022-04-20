@@ -5,7 +5,11 @@ The automatic lyric transcription is completed with the speechbrain toolkits
 
 ### Model Training
 To train the model, go to the path `PathToSpeechbrain/recipes/LibriSpeech/ASR/CTC`
+
+
 Put the data folder under the same diroctory.
+
+
 Run `python train_with_wav2vec.py hparams/train_with_wav2vec.yaml` to get the model
 
 ### Inference
