@@ -5,7 +5,7 @@
 # ################################
 
 # Seed needs to be set at top of yaml, before objects with parameters are made
-seed: 1986
+seed: 1988
 __set_seed: !apply:torch.manual_seed [!ref <seed>]
 output_folder: !ref results/train_wav2vec2_char/<seed>
 wer_file: !ref <output_folder>/wer.txt
@@ -16,25 +16,24 @@ train_log: !ref <output_folder>/train_log.txt
 wav2vec2_hub: facebook/wav2vec2-large-960h-lv60-self
 
 # Data files
-data_folder: !PLACEHOLDER # e,g./path/to/LibriSpeech
+data_folder: data # e,g./path/to/LibriSpeech
 # noise/ris dataset will automatically be downloaded
-data_folder_rirs: !ref <data_folder>
-train_splits: ["train-clean-100", "train-clean-360", "train-other-500"]
-dev_splits: ["dev-clean"]
-test_splits: ["test-clean", "test-other"]
+# data_folder_rirs: !ref <data_folder>
+# train_splits: ["train-clean-100", "train-clean-360", "train-other-500"]
+# dev_splits: ["dev-clean"]
+# test_splits: ["test-clean", "test-other"]
 skip_prep: False
 ckpt_interval_minutes: 25 # save checkpoint every N min
-train_csv: !ref <output_folder>/train.csv
-valid_csv: !ref <output_folder>/dev-clean.csv
+train_csv: !ref train.csv
+valid_csv: !ref valid.csv
 test_csv:
-   - !ref <output_folder>/test-clean.csv
-   - !ref <output_folder>/test-other.csv
+   - !ref test1.csv
 
 # Training parameters
-number_of_epochs: 1
-lr: 0.9
-lr_wav2vec: 0.0001
-sorting: ascending
+number_of_epochs: 20
+lr: 0.05
+lr_wav2vec: 0.05
+sorting: descending
 auto_mix_prec: False
 sample_rate: 16000
 
